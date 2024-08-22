@@ -1,0 +1,7 @@
+instalacion/
+php/.vscode/
+archivos_mapuche/
+metadatos_compilados/
+gafi.code-workspace
+exportaciones/jasper/test.jasper
+exportaciones/jasper/test.jrxml

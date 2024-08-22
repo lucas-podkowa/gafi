@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Listado de horas trabajadas" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff655e43-9633-4f50-baf5-6358de67ab1b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="vtv_fio.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="periodo" class="java.lang.String" nestedType="java.lang.Integer">
+		<defaultValueExpression><![CDATA[$P{periodo}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="img_gafi" class="java.lang.String"/>
+	<parameter name="img_fio" class="java.lang.String"/>
+	<parameter name="usuario_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select 	agente,
+	horas_totales as totales,
+	horas_totales_extra as extras,
+	horas_totales_normales as normales
+from 	horas_totales
+where 	usuario_id = $P{usuario_id}
+order by agente;]]>
+	</queryString>
+	<field name="agente" class="java.lang.String"/>
+	<field name="totales" class="java.lang.String"/>
+	<field name="extras" class="java.lang.String"/>
+	<field name="normales" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="44" uuid="4d6808ca-5294-4952-a31c-de752ca42668"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Double"/>
+					<topPen lineWidth="0.5" lineStyle="Double" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Double" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Double" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Double" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="19" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Informe de horas trabajadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="54" width="58" height="20" uuid="03f49932-7d96-4156-8574-eb66bb46a335"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="61" y="54" width="318" height="20" uuid="0710c6a2-ec00-43c9-ad91-48ed5949e19a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{periodo}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" isUsingCache="false" onErrorType="Blank">
+				<reportElement isPrintRepeatedValues="false" x="3" y="2" width="80" height="40" uuid="75142fb7-9b29-41f3-8b9c-8f4a77d57339">
+					<printWhenExpression><![CDATA[$P{img_gafi} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{img_gafi}]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" isUsingCache="false" onErrorType="Blank">
+				<reportElement isPrintRepeatedValues="false" x="497" y="2" width="55" height="40" uuid="30c05a89-b0c2-4256-97b9-e99f2837fd9e">
+					<printWhenExpression><![CDATA[$P{img_fio} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{img_fio}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27">
+			<staticText>
+				<reportElement x="0" y="0" width="189" height="20" uuid="1f65f974-aec1-4557-86ab-91e529ade709"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Agente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="433" y="0" width="122" height="20" uuid="1f65f974-aec1-4557-86ab-91e529ade709"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas Totales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="0" width="122" height="20" uuid="f3e1a867-a053-499a-abb0-aff38f567eff"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas Normales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="0" width="122" height="20" uuid="6a408a44-c89d-4442-8902-6b8285e55498"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas extras]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29">
+			<textField>
+				<reportElement x="3" y="0" width="186" height="28" uuid="9de47acb-9c7c-46de-b676-1de3e512af8c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{agente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="0" width="109" height="28" uuid="59708ae8-d91f-44ac-b9be-954e69eb398e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{extras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="0" width="109" height="28" uuid="9de055a5-9878-4d72-a8b3-b2b45378c973"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{normales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="109" height="28" uuid="61bce437-f6f4-41e1-af45-aee07275593c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totales}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="28" width="555" height="1" uuid="bbfff9c9-9c3f-410a-9d4e-533a6682b94f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="373" y="11" width="100" height="30" uuid="f7bf4e86-bbdc-4b08-8a1c-d482cdda3aff"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="473" y="11" width="82" height="30" uuid="072bf90c-3a76-485a-990c-43af657c5c67"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="3" y="21" width="100" height="20" uuid="e40066e2-7610-45aa-a9a2-11db78ed4eaf"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
